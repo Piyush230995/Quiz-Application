@@ -10,6 +10,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> ExceptionHandler(Exception e) {
-        return new ResponseEntity<>("Something went wrong", HttpStatus.BAD_REQUEST);
+        e.printStackTrace(); // prints full stack trace to console
+        return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
